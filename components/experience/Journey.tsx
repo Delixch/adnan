@@ -1,10 +1,10 @@
-import Image from "next/image";
+import React from "react";
 
 interface JourneyProps {
-  headingColor?: string;
+  // headingColor prop removed as it's not used
 }
 
-export const Journey: React.FC<JourneyProps> = ({ headingColor }) => {
+export const Journey: React.FC<JourneyProps> = () => {
   const experiences = [
     {
       id: 1,
@@ -55,4 +55,4 @@ export const Journey: React.FC<JourneyProps> = ({ headingColor }) => {
       </div>
     </div>
   );
-};
+}; 
