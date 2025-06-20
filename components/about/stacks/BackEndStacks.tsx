@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "react-hot-toast";
 import {
   FaUtensils,
   FaSwimmer,
@@ -12,7 +13,6 @@ import {
 } from "react-icons/fa";
 import { MdSportsMartialArts } from "react-icons/md";
 import { FiCode } from "react-icons/fi";
-import { toast } from "react-hot-toast";
 
 export const BackEndStacks = () => {
   const hobbies = [
@@ -32,32 +32,26 @@ export const BackEndStacks = () => {
     toast.success(title.toUpperCase(), {
       icon: "🔥",
       style: {
-        border: "1px solid #3e3e3e",
-        background: "#111",
-        color: "#fff",
+        border: "1px solid #d4af37", // A golden-amber border
+        background: "#1f2937", // Dark gray background
+        color: "#f3f4f6", // Light gray text
         fontWeight: "bold",
-        fontSize: "16px",
-        textTransform: "uppercase",
       },
     });
   };
 
   return (
-    <>
+    <div className="w-full grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 col-span-full">
       {hobbies.map((hobby) => (
         <div
           key={hobby.title}
-          className="p-3 md:p-4 border border-borderColor bg-tertiary rounded-sm cursor-pointer transition-all duration-300 hover:border-transparent hover:shadow-lg hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 group"
           onClick={() => onHandleClick(hobby.title)}
+          className="bg-gradient-to-br from-amber-500 to-amber-700 text-white p-4 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-transform duration-300 hover:scale-110 shadow-lg cursor-pointer"
+          title={hobby.title}
         >
-          <p
-            className="flex justify-center items-center text-gray-400 text-5xl group-hover:text-white transition-colors duration-300"
-            title={hobby.title}
-          >
-            {hobby.icon}
-          </p>
+          <div className="text-4xl">{hobby.icon}</div>
         </div>
       ))}
-    </>
+    </div>
   );
 };

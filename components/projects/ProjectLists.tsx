@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import Image from "next/image";
 import { SiReact, SiPython, SiOpenai, SiSharp, SiUnity } from "react-icons/si";
 import {
@@ -10,8 +11,22 @@ import {
   BiLogoJava,
   BiLogoHtml5,
 } from "react-icons/bi";
+import { FaHeart } from "react-icons/fa";
 
-export const ProjectLists = () => {
+interface ProjectListsProps {
+  headingColor?: string;
+}
+
+export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
+  const [likes, setLikes] = useState<{ [key: string]: number }>({});
+
+  const handleLike = (projectName: string) => {
+    setLikes(prevLikes => ({
+      ...prevLikes,
+      [projectName]: (prevLikes[projectName] || 0) + 1
+    }));
+  };
+  
   const projects = [
     {
       name: "Zürcher Kantonalbank ",
@@ -209,57 +224,70 @@ export const ProjectLists = () => {
 
   return (
     <div className="mt-2 w-full self-center flex flex-col items-center justify-center">
-      <span className="block font-bold text-transparent text-4xl mt-1 lg:text-5xl bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-          Portfolio
-        </span>
-     
+      <h1 className={`text-4xl font-bold mb-2 text-center ${headingColor}`}>
+        Projekte
+      </h1>
 
-      <hr className="w-96 my-3 p-1 bg-gradient-to-r from-purple-500 to-red-500 border-none rounded-sm" />
+      <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-orange-400 to-orange-600 border-none rounded-sm" />
 
-      <p className="text-primary text-base my-6 lg:text-xl text-center">
+      <p className="text-gray-800 text-base lg:text-xl text-center">
         Meine bisherigen Schnupperlehren
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full lg:w-4/5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full lg:w-4/5 mt-6">
         {projects.map((project) => (
           <div
             key={project.img}
-            className="border border-borderColor bg-tertiary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 duration-300 hover:border-transparent hover:bg-orange-500 group">
+            className="bg-gradient-to-br from-orange-500 to-orange-700 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 duration-300 group">
             <div
-              className="relative bg-black flex justify-center items-center border rounded-t-lg border-borderColor cursor-pointer group"
+              className="relative flex justify-center items-center cursor-pointer"
               onClick={() => onHandleClick(project.link)}>
               <Image
                 src={project.img}
                 alt={project.name}
                 width={400}
                 height={300}
-                className="w-full h-72 object-cover rounded-t-lg group-hover:opacity-70 transition-opacity duration-300"
+                className="w-full h-72 object-cover rounded-t-2xl group-hover:opacity-70 transition-opacity duration-300"
               />
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-white text-lg font-bold bg-black bg-opacity-50 px-4 py-2 rounded-md">
-                  Dokument ansehen und herunterladen 🔗
+              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-40 rounded-t-2xl">
+                <span className="text-white text-lg font-bold bg-black bg-opacity-60 px-4 py-2 rounded-md">
+                  Dokument ansehen 🔗
                 </span>
               </div>
             </div>
             <div className="flex flex-col px-5 py-4">
               <div className="flex items-center justify-between mb-4">
-                <p className="font-bold text-xl bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+                <p className="font-bold text-xl text-white">
                   {project.name}
                 </p>
-                <div className="flex gap-x-2">
+
+                <div className="flex items-center justify-end gap-2">
                   {project.stacks.map((stack) => (
                     <div
                       key={stack.name}
-                      className="w-10 h-10 bg-black border border-borderColor rounded-md flex items-center justify-center hover:border-pink-500 transition-all duration-300"
+                      className="w-8 h-8 bg-orange-800/70 border border-orange-400/50 rounded-full flex items-center justify-center"
                       title={stack.name}>
                       {stack.logo}
                     </div>
                   ))}
                 </div>
               </div>
-              <p className="text-gray-300 text-justify text-base">
-                {project.description}
-              </p>
+
+              <div className="flex-grow">
+                <p className="text-orange-100 text-sm">
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="flex justify-end items-center mt-4">
+                <button 
+                  onClick={() => handleLike(project.name)}
+                  className="flex items-center gap-2 text-white bg-orange-800/70 border border-orange-400/50 rounded-full px-4 py-2 transition-transform hover:scale-110"
+                >
+                  <FaHeart className="text-red-500" />
+                  <span className="font-semibold text-sm">{likes[project.name] || 0}</span>
+                </button>
+              </div>
             </div>
           </div>
         ))}

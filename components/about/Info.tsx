@@ -42,21 +42,21 @@ export const Info = () => {
 
   return (
     <div className="max-w-4xl">
-      <h1 className="text-lg font-medium text-primary md:text-xl lg:text-2xl mb-2">
+      <h1 className="text-lg font-medium text-gray-800 md:text-xl lg:text-2xl mb-2">
         Über mich{" "}
-        <span className="block font-extrabold text-transparent text-5xl mt-3 mb-6 lg:text-6xl bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 leading-tight">
+        <span className="block font-extrabold text-transparent text-5xl mt-3 mb-6 lg:text-6xl bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600 leading-tight">
           Wer bin ich?
         </span>
       </h1>
 
-      <div className="w-96 h-1 bg-gradient-to-r from-purple-500 to-red-500 rounded-full mb-8"></div>
+      <div className="w-96 h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full mb-8"></div>
 
       <div className="space-y-6 text-lg leading-relaxed">
-        <p className="text-gray-300 hover:text-white transition-colors duration-300">
+        <p className="text-gray-800 hover:text-black transition-colors duration-300">
           Ich bin Eren, zurzeit bin ich Schüler und besuche die zweite Klasse der Sekundarschule Zürich Rebhügel.
         </p>
 
-        <p className="text-gray-300 hover:text-white transition-colors duration-300">
+        <p className="text-gray-800 hover:text-black transition-colors duration-300">
           Ich bin{" "}
           <span className="text-pink-400 font-bold">
             freundlich und höflich
@@ -70,7 +70,7 @@ export const Info = () => {
           <span className="text-red-400 font-semibold">und diesen wichtigen Schritt</span> in meinem Leben.
         </p>
 
-        <p className="text-gray-300 hover:text-white transition-colors duration-300">
+        <p className="text-gray-800 hover:text-black transition-colors duration-300">
           <span>
             erfolgreich abzuschließen.{" "}
             <span className="text-teal-400 font-bold">
@@ -81,7 +81,7 @@ export const Info = () => {
         </p>
       </div>
 
-      <div className="w-96 h-1 bg-gradient-to-r from-purple-500 to-red-500 rounded-full my-8"></div>
+      <div className="w-96 h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full my-8"></div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl">
         {contacts.map((contact) => (
@@ -89,7 +89,7 @@ export const Info = () => {
             <CustomButton
               btnType="submit"
               title={contact.name}
-              containerStyles="!my-1 w-full border-none bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 shadow-md hover:shadow-lg transition-transform hover:scale-105 rounded-lg py-3"
+              containerStyles="!my-1 w-full border-none bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md hover:shadow-lg transition-transform hover:scale-105 rounded-lg py-3"
               textStyles="text-white font-semibold"
               onClick={() => onHandleClick(contact)}
             />
@@ -100,7 +100,7 @@ export const Info = () => {
             btnType="submit"
             title={instagram.name}
             to={instagram.href}
-            containerStyles="!my-1 w-full border-none bg-gradient-to-r from-pink-500 to-red-500 hover:from-red-500 hover:to-pink-500 shadow-md hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg py-3"
+            containerStyles="!my-1 w-full border-none bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg py-3"
             textStyles="text-white font-semibold"
             onClick={() => onHandleClick(instagram)}
           />

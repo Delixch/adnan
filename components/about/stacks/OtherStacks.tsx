@@ -22,35 +22,35 @@ export const OtherStacks = () => {
         {references.map((ref) => (
           <div
             key={ref.email}
-            className="border border-borderColor bg-tertiary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-900 group transform hover:scale-105"
+            className="bg-gradient-to-br from-amber-500 to-amber-700 text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             <div className="space-y-3">
-              <h3 className="font-bold text-xl text-white group-hover:text-white">
+              <h3 className="font-bold text-xl text-white">
                 {ref.name}
               </h3>
               
-              <p className="text-gray-300 text-base font-medium group-hover:text-white">
+              <p className="text-amber-200 text-base font-medium">
                 {ref.job}
               </p>
               
               <div className="space-y-2 pt-2">
                 <div className="flex flex-col gap-1">
-                  <span className="text-sm font-semibold text-gray-400 group-hover:text-gray-200">
+                  <span className="text-sm font-semibold text-amber-100">
                     E-Mail:
                   </span>
                   <a 
                     href={`mailto:${ref.email}`}
-                    className="text-blue-400 hover:text-blue-300 text-sm break-all transition-colors duration-200"
+                    className="text-white hover:text-amber-200 text-sm break-all transition-colors duration-200"
                   >
                     {ref.email}
                   </a>
                 </div>
                 
                 <div className="flex flex-col gap-1">
-                  <span className="text-sm font-semibold text-gray-400 group-hover:text-gray-200">
+                  <span className="text-sm font-semibold text-amber-100">
                     Telefon:
                   </span>
-                  <span className="text-gray-300 text-sm group-hover:text-white">
+                  <span className="text-white text-sm">
                     {ref.phone}
                   </span>
                 </div>

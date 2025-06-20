@@ -6,7 +6,11 @@ import { FrontEndStacks } from "./stacks/FrontEndStacks";
 import { BackEndStacks } from "./stacks/BackEndStacks";
 import { OtherStacks } from "./stacks/OtherStacks";
 
-export const Skills = () => {
+interface SkillsProps {
+  headingColor?: string;
+}
+
+export const Skills: React.FC<SkillsProps> = ({ headingColor }) => {
   const [menu, setMenu] = useState<number>(1);
 
   const stacks = [
@@ -17,32 +21,24 @@ export const Skills = () => {
 
   return (
     <div className="mt-10 w-full self-center flex flex-col items-center justify-center">
-      <p className="font-bold text-transparent text-3xl lg:text-4xl mb-2 bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+      <h1 className={`font-bold text-transparent text-3xl lg:text-4xl mb-2 bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 ${headingColor}`}>
         Hier sind meine Fähigkeiten und Kompetenzen.
-      </p>
+      </h1>
 
-      <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-purple-500 to-red-500 border-none rounded-sm" />
+      <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-amber-500 to-amber-700 border-none rounded-sm" />
 
       <div className="grid grid-cols-3 mb-6 w-full px-4">
         {stacks.map((stack) => (
           <div key={stack.menu}>
             <button
-              className={
+              className={`rounded-md w-full py-3 text-white font-semibold shadow-md transition-all duration-300 ${
                 menu === stack.menu
-                  ? "rounded-sm w-full py-3 border border-borderColor bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transition-all duration-300"
-                  : "rounded-sm w-full py-3 border border-borderColor bg-black text-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-white transition-all duration-300"
-              }
+                  ? "bg-amber-700 scale-105"
+                  : "bg-amber-600 hover:bg-amber-700"
+              }`}
               onClick={() => setMenu(stack.menu)}
             >
-              <p
-                className={
-                  menu === stack.menu
-                    ? "text-white hover:text-gray-200"
-                    : "text-white"
-                }
-              >
-                {stack.title}
-              </p>
+              {stack.title}
             </button>
           </div>
         ))}

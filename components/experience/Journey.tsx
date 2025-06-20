@@ -1,4 +1,10 @@
-export const Journey = () => {
+import Image from "next/image";
+
+interface JourneyProps {
+  headingColor?: string;
+}
+
+export const Journey: React.FC<JourneyProps> = ({ headingColor }) => {
   const experiences = [
     {
       id: 1,
@@ -21,28 +27,27 @@ export const Journey = () => {
   ];
 
   return (
-    <div className="max-w-6xl">
-      <h1 className="text-lg font-medium text-primary md:text-xl lg:text-2xl mb-2">
-        Erfahrungen{" "}
-        <span className="block font-extrabold text-transparent text-5xl mt-3 mb-6 lg:text-6xl bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 leading-tight">
-          Meine Schulzeit und Zeugnisse
-        </span>
-      </h1>
-
-      <div className="w-96 h-1 bg-gradient-to-r from-purple-500 to-red-500 rounded-full mb-8"></div>
+    <div className="max-w-6xl mx-auto">
+       <div className="text-center mb-12">
+        <h2 className="font-bold text-transparent text-5xl lg:text-6xl bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600 mb-2 leading-tight">
+           Meine Schulische Laufbahn
+        </h2>
+        <hr className="w-96 mx-auto p-1 bg-gradient-to-r from-sky-400 to-sky-600 border-none rounded-sm" />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {experiences.map((experience) => (
           <div
             key={experience.place}
-            className="bg-tertiary border border-borderColor rounded-xl p-6 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:shadow-xl hover:border-orange-400/50 cursor-pointer group transform hover:scale-105">
-            <h3 className="text-lg font-bold text-white mb-3 group-hover:text-white">
+            className="bg-gradient-to-br from-sky-500 to-sky-700 text-white rounded-2xl p-6 shadow-lg transition-transform hover:scale-105 duration-300 group"
+          >
+            <h3 className="text-lg font-bold text-white mb-3">
               {experience.place}
             </h3>
-            <h4 className="font-semibold text-slate-200 mb-2 text-base group-hover:text-white">
+            <h4 className="font-semibold text-sky-100 mb-2 text-base">
               {experience.title}
             </h4>
-            <p className="text-primary text-sm group-hover:text-gray-200">
+            <p className="text-sky-200 text-sm italic">
               {experience.timespan}
             </p>
           </div>
