@@ -3,25 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 17, 17, 17;
+  --gradient-start: #7e22ce;
+  --gradient-mid: #ec4899;
+  --gradient-end: #ef4444;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.hamburger-line {
+  @apply w-[30px] h-[2px] bg-primary  transition-all duration-300 ease-in-out;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45 translate-y-2;
+}
+.hamburger-active > span:nth-child(2) {
+  @apply opacity-0;
+}
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45 -translate-y-2;
 }
