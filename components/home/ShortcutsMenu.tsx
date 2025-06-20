@@ -42,7 +42,7 @@ const getSectionComponent = (id: string, headingColor: string) => {
     case "about":
       return (
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          <div className="w-full lg:w-1/2 text-justify"><Info headingColor={headingColor} /></div>
+          <div className="w-full lg:w-1/2 text-justify"><Info /></div>
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-start lg:mt-16">
             <div className="w-96 h-96 lg:w-[500px] lg:h-[500px] relative rounded-2xl overflow-hidden shadow-2xl border-2 border-borderColor bg-tertiary">
               <Image src="/photo/Eren.png" alt="Eren" fill className="object-cover" />
@@ -51,7 +51,7 @@ const getSectionComponent = (id: string, headingColor: string) => {
         </div>
       );
     case "skills": return <Skills headingColor={headingColor} />;
-    case "experience": return <><Journey headingColor={headingColor} /><Certificate /></>;
+    case "experience": return <><Journey /><Certificate /></>;
     case "projects": return <ProjectLists headingColor={headingColor} />;
     default: return null;
   }
