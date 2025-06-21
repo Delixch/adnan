@@ -4,11 +4,19 @@ import React, { useRef, createRef } from "react";
 import {
   HiHome,
   HiUser,
-  HiLightningBolt,
   HiBriefcase,
   HiCollection,
+  HiLightningBolt,
+  HiLockClosed,
+  HiCloud,
+  HiChat,
+  HiChip,
+  HiStar,
+  HiDocumentText,
+  HiEye,
 } from "react-icons/hi";
 import Image from "next/image";
+import SpotlightCard from "../shared/SpotlightCard";
 
 // Import all the content components
 import { Welcome } from "@/components/home/Welcome";
@@ -18,13 +26,26 @@ import { Skills } from "@/components/about/Skills";
 import { Journey } from "@/components/experience/Journey";
 import { Certificate } from "@/components/experience/Certificate";
 import { ProjectLists } from "@/components/projects/ProjectLists";
+import { Guestbook } from "@/components/guestbook/Guestbook";
+
+// Import widget components
+import VisitorCounter from "../shared/VisitorCounter";
+import WeatherWidget from "../shared/WeatherWidget";
+import SystemStatus from "../shared/SystemStatus";
+import SystemControl from "../shared/SystemControl";
 
 const shortcuts = [
   { id: "home", label: "Startseite", icon: <HiHome className="w-8 h-8" />, color: "bg-rose-500", textColor: "text-rose-500" },
-  { id: "about", label: "Über mich", icon: <HiUser className="w-8 h-8" />, color: "bg-emerald-500", textColor: "text-emerald-500" },
+  { id: "about", label: "Über mich", icon: <HiUser className="w-8 h-8" />, color: "bg-blue-500", textColor: "text-blue-500" },
+  { id: "guestbook", label: "Gästebuch", icon: <HiChat className="w-8 h-8" />, color: "bg-green-500", textColor: "text-green-500" },
   { id: "experience", label: "Erfahrung", icon: <HiBriefcase className="w-8 h-8" />, color: "bg-sky-500", textColor: "text-sky-500" },
   { id: "projects", label: "Projekte", icon: <HiCollection className="w-8 h-8" />, color: "bg-orange-500", textColor: "text-orange-500" },
-  { id: "skills", label: "Fähigkeiten", icon: <HiLightningBolt className="w-8 h-8" />, color: "bg-amber-500", textColor: "text-amber-500" },
+  { id: "skills", label: "Fähigkeiten", icon: <HiStar className="w-8 h-8" />, color: "bg-amber-500", textColor: "text-amber-500" },
+  // New shortcuts start here
+  { id: "visitor-counter", label: "Besucherzähler", icon: <HiEye className="w-8 h-8" />, textColor: "" },
+  { id: "weather", label: "Wetter", icon: <HiCloud className="w-8 h-8" />, textColor: "" },
+  { id: "system-status", label: "System", icon: <HiChip className="w-8 h-8" />, textColor: "" },
+  { id: "system-control", label: "Kontrol", icon: <HiLightningBolt className="w-8 h-8" />, textColor: "" },
 ];
 
 const getSectionComponent = (id: string, headingColor: string, setActiveSection: (section: string | null) => void) => {
@@ -53,6 +74,39 @@ const getSectionComponent = (id: string, headingColor: string, setActiveSection:
     case "skills": return <Skills headingColor={headingColor} />;
     case "experience": return <><Journey /><Certificate /></>;
     case "projects": return <ProjectLists headingColor={headingColor} />;
+    case "weather":
+      return (
+        <div className="flex flex-col items-center justify-center p-4">
+          <WeatherWidget />
+        </div>
+      );
+    case "system-control":
+      return (
+        <div className="flex flex-col items-center justify-center p-4">
+          <SystemControl />
+        </div>
+      );
+    case "shortcut3":
+    case "shortcut4":
+      return (
+        <SpotlightCard
+          className="!p-8 !bg-[#2a2141] !border-slate-700"
+          spotlightColor="rgba(167, 139, 250, 0.15)"
+        >
+          <div className="flex flex-col items-start text-left w-full">
+            <div className="p-3 bg-slate-900/40 rounded-md mb-4">
+              <HiLockClosed className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">
+              Erhöhte Sicherheit
+            </h3>
+            <p className="text-slate-400 text-base">
+              Unsere hochmoderne Software bietet Sicherheit durch strenge
+              Sicherheitsmaßnahmen.
+            </p>
+          </div>
+        </SpotlightCard>
+      );
     default: return null;
   }
 };
@@ -85,12 +139,13 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
 
   return (
     <section className="p-4 md:p-8 relative">
-      <h1 className="text-2xl font-bold mb-4 text-white bg-gradient-to-r from-slate-800 to-slate-900 animate-pulse p-3 rounded-xl shadow-md border border-slate-600/50 hover:animate-bounce transition-all duration-300 hover:shadow-lg hover:scale-105 h-12 flex items-center justify-center">
+      <h1 className="text-2xl font-bold mb-4 text-white bg-gradient-to-r from-slate-800 via-purple-900 to-slate-900 p-3 rounded-xl shadow-md border border-slate-600/50 hover:from-purple-800 hover:via-indigo-800 hover:to-purple-900 transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-105 h-12 flex items-center justify-center cursor-pointer transform hover:rotate-1">
         Eren Aydin Kurzbefehle
       </h1>
       
       <div className="flex flex-col gap-4">
-        {shortcuts.map((shortcut, index) => (
+        {/* Original shortcuts */}
+        {shortcuts.slice(0, 6).map((shortcut, index) => (
           <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index]}>
             <div
               onClick={() => handleShortcutClick(shortcut.id, index)}
@@ -115,6 +170,57 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
             )}
           </div>
         ))}
+
+        {/* New shortcuts in grid layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {shortcuts.slice(6).map((shortcut, index) => (
+            <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index + 6]}>
+              <SpotlightCard
+                from="rgba(101, 10, 255, 0.4)"
+                via="rgba(112, 10, 255, 0.2)"
+                to="rgba(128, 80, 255, 0.1)"
+                size={200}
+                className="p-4 flex items-center h-32 text-white cursor-pointer transform hover:scale-105 transition-all duration-300 ease-in-out relative bg-[#13131D] border border-gray-800 rounded-2xl"
+                onClick={shortcut.id === 'system-control' ? undefined : () => handleShortcutClick(shortcut.id, index + 6)}
+              >
+                {shortcut.id === 'visitor-counter' ? (
+                  <div className="flex items-center justify-center w-full space-x-2">
+                    <HiEye className="w-6 h-6" />
+                    <span className="text-lg font-bold">Besucherzahl</span>
+                    <VisitorCounter />
+                  </div>
+                ) : shortcut.id === 'system-control' ? (
+                  <div className="flex flex-col items-center justify-center w-full h-full text-white">
+                    <span className="text-sm font-semibold mb-2">Kontrol</span>
+                    <SystemControl />
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center">
+                      {shortcut.icon && <div className="mr-2">{shortcut.icon}</div>}
+                      <span className="text-sm font-semibold">{shortcut.label}</span>
+                    </div>
+                    {shortcut.id === "weather" && (
+                      <div className="ml-auto">
+                        <WeatherWidget />
+                      </div>
+                    )}
+                    {shortcut.id === "system-status" && (
+                      <div className="ml-auto">
+                        <SystemStatus />
+                      </div>
+                    )}
+                  </div>
+                )}
+              </SpotlightCard>
+              {activeSection === shortcut.id && shortcut.id !== 'system-control' && (
+                <div className="bg-white p-6 rounded-b-3xl text-gray-900 shadow-lg transition-all duration-300 ease-in-out">
+                  {getSectionComponent(shortcut.id, shortcut.textColor || "", setActiveSection)}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
