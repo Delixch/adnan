@@ -181,11 +181,11 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
                 onClick={shortcut.id === 'system-control' ? undefined : () => handleShortcutClick(shortcut.id, index + 5)}
               >
                 {/* iOS Shortcuts style button for new shortcuts */}
-                <div className="absolute top-2 right-2 w-6 h-6 bg-white/30 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 z-10 backdrop-blur-sm">
+                <div className="absolute top-2 right-2 w-8 h-8 bg-white/30 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 z-10 backdrop-blur-sm">
                   <div className="flex gap-0.5">
-                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
-                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
-                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
                   </div>
                 </div>
 
@@ -201,12 +201,14 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
                     <SystemControl />
                   </div>
                 ) : shortcut.id === 'system-status' ? (
-                  <div className="flex items-center justify-between w-full">
+                  <div className="flex justify-between items-center w-full">
                     <div className="flex items-center">
                       {shortcut.icon && <div className="mr-2">{shortcut.icon}</div>}
                       <span className="text-sm font-semibold">{shortcut.label}</span>
                     </div>
-                    <SystemStatus />
+                    <div className="pr-8">
+                      <SystemStatus />
+                    </div>
                   </div>
                 ) : (
                   // This handles the "weather" shortcut
