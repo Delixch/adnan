@@ -9,7 +9,7 @@ export const FrontEndStacks = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col gap-6 col-span-full">
+    <div className="w-full flex flex-col gap-6 col-span-full pr-4">
       {languages.map((lang) => (
         <div key={lang.name} className="flex flex-col gap-2 bg-amber-100 border-2 border-amber-500 rounded-xl p-4 hover:bg-amber-200 transition-all duration-300">
           <div className="flex items-center gap-3">

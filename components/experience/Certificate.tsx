@@ -65,7 +65,7 @@ export const Certificate = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {expertCerficiates.map((expert) => (
           <div
             key={expert.img}
@@ -75,33 +75,33 @@ export const Certificate = () => {
               <Image
                 src={expert.img}
                 alt={expert.name || "Certificate"}
-                width={400}
-                height={300}
-                className="w-full h-auto"
+                width={300}
+                height={200}
+                className="w-full h-48 object-cover"
               />
             </div>
 
-            <div className="p-6 space-y-3">
-              <h3 className="font-bold text-lg lg:text-xl text-sky-800 group-hover:text-sky-800">
+            <div className="p-3 space-y-2">
+              <h3 className="font-bold text-base text-sky-800 group-hover:text-sky-800">
                 {expert.name}
               </h3>
-              <p className="text-sky-700 group-hover:text-sky-700 text-sm lg:text-base">
+              <p className="text-sky-700 group-hover:text-sky-700 text-xs leading-relaxed">
                 {expert.from}
               </p>
-              <p className="text-sky-600 group-hover:text-sky-600 text-sm lg:text-base">
+              <p className="text-sky-600 group-hover:text-sky-600 text-xs">
                 {expert.issued}
               </p>
               {expert.credential && (
-                <p className="text-sky-600 group-hover:text-sky-600 text-sm lg:text-base">
+                <p className="text-sky-600 group-hover:text-sky-600 text-xs">
                   {expert.credential}
                 </p>
               )}
 
               <CustomButton
                 btnType="button"
-                title="Zeugnis ansehen und herunterladen"
-                containerStyles="w-full mt-4 border-sky-500 bg-sky-200 hover:bg-sky-300 hover:shadow-lg transition-all duration-300 rounded-lg py-3"
-                textStyles="text-sky-800 font-semibold"
+                title="Zeugnis ansehen"
+                containerStyles="w-full mt-2 border-sky-500 bg-sky-200 hover:bg-sky-300 hover:shadow-lg transition-all duration-300 rounded-lg py-2"
+                textStyles="text-sky-800 font-semibold text-xs"
                 onClick={() => handleDirectDownload(expert)}
               />
             </div>
