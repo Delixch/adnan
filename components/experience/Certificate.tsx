@@ -52,8 +52,8 @@ export const Certificate = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
-      <div className="text-center mb-8">
+    <div className="mt-8 w-full max-w-6xl mx-auto">
+      <div className="text-center mb-6">
         <h2 className="font-extrabold text-transparent text-4xl lg:text-5xl bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600 mb-4">
           Meine Zeugnisse
         </h2>

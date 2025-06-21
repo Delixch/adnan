@@ -1,13 +1,26 @@
 "use client";
 
-import { Link } from "react-scroll";
 import { Typewriter } from "react-simple-typewriter";
 
 interface WelcomeProps {
   headingColor?: string;
+  setActiveSection?: (section: string | null) => void;
 }
 
-export const Welcome: React.FC<WelcomeProps> = ({ headingColor }) => {
+export const Welcome: React.FC<WelcomeProps> = ({ headingColor, setActiveSection }) => {
+  const scrollToFooter = () => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToAbout = () => {
+    if (setActiveSection) {
+      setActiveSection('about');
+    }
+  };
+
   return (
     <div className="max-w-2xl">
       <h1 className={`text-3xl font-bold md:text-5xl lg:text-6xl mb-4 ${headingColor}`}>
@@ -53,21 +66,19 @@ export const Welcome: React.FC<WelcomeProps> = ({ headingColor }) => {
       </blockquote>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 max-w-sm sm:max-w-md">
-        <Link to="about" spy={true} smooth={true} offset={-80} duration={500}>
-          <button
-            type="button"
-            className="w-full sm:flex-1 py-3 px-6 sm:py-4 sm:px-8 rounded-xl font-semibold border border-transparent bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-white text-sm sm:text-base">
-            Über mich
-          </button>
-        </Link>
+        <button
+          onClick={scrollToAbout}
+          type="button"
+          className="w-full sm:flex-1 py-3 px-6 sm:py-4 sm:px-8 rounded-xl font-semibold border border-transparent bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-white text-sm sm:text-base">
+          Über mich
+        </button>
 
-        <Link to="contact" spy={true} smooth={true} offset={-80} duration={500}>
-          <button
-            type="button"
-            className="w-full sm:flex-1 py-3 px-6 sm:py-4 sm:px-8 rounded-xl font-semibold border-2 border-rose-300 bg-rose-500/80 hover:bg-gradient-to-r hover:from-rose-600 hover:to-rose-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-white backdrop-blur-sm text-sm sm:text-base">
-            Schreib mir
-          </button>
-        </Link>
+        <button
+          onClick={scrollToFooter}
+          type="button"
+          className="w-full sm:flex-1 py-3 px-6 sm:py-4 sm:px-8 rounded-xl font-semibold border-2 border-rose-300 bg-rose-500/80 hover:bg-gradient-to-r hover:from-rose-600 hover:to-rose-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-white backdrop-blur-sm text-sm sm:text-base">
+          Schreib mir
+        </button>
       </div>
     </div>
   );

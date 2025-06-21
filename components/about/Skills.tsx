@@ -20,8 +20,8 @@ export const Skills: React.FC<SkillsProps> = ({ headingColor }) => {
   ];
 
   return (
-    <div className="mt-10 w-full self-center flex flex-col items-center justify-center">
-      <h1 className={`font-bold text-transparent text-3xl lg:text-4xl mb-2 bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 ${headingColor}`}>
+    <div className="mt-8 w-full self-center flex flex-col items-center justify-center">
+      <h1 className={`font-bold text-transparent text-3xl lg:text-4xl mb-2 bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 ${headingColor || ''}`}>
         Hier sind meine Fähigkeiten und Kompetenzen.
       </h1>
 

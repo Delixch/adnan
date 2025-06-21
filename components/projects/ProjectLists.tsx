@@ -223,8 +223,8 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
   };
 
   return (
-    <div className="mt-2 w-full self-center flex flex-col items-center justify-center">
-      <h1 className={`text-4xl font-bold mb-2 text-center ${headingColor}`}>
+    <div className="mt-8 w-full self-center flex flex-col items-center justify-center">
+      <h1 className={`text-4xl font-bold mb-2 text-center ${headingColor || ''}`}>
         Projekte
       </h1>
 

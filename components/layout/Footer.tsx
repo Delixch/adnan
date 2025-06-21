@@ -2,7 +2,7 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { HiDownload, HiClipboardCopy, HiShare } from 'react-icons/hi';
-import { SiGithub, SiInstagram } from 'react-icons/si';
+import { SiGithub, SiInstagram, SiWhatsapp } from 'react-icons/si';
 
 const Footer = () => {
   const contacts = [
@@ -60,6 +60,9 @@ const Footer = () => {
           <a href="https://github.com/yigiterenaydin" target="_blank" rel="noopener noreferrer" title="GitHub">
             <SiGithub className="w-8 h-8 hover:opacity-80 transition-opacity" />
           </a>
+          <a href="https://wa.me/41762925353" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <SiWhatsapp className="w-8 h-8 hover:opacity-80 transition-opacity" />
+          </a>
           <a href="https://www.instagram.com/eren_zhhh/" target="_blank" rel="noopener noreferrer" title="Instagram">
             <SiInstagram className="w-8 h-8 hover:opacity-80 transition-opacity" />
           </a>
@@ -73,10 +76,19 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {footerShortcuts.map((shortcut) => (
-            <div key={shortcut.title} className={`${shortcut.color} rounded-3xl p-6 flex flex-col justify-between h-48 text-white text-center`}>
+            <div key={shortcut.title} className={`${shortcut.color} rounded-3xl p-6 flex flex-col justify-between h-48 text-white text-center relative`}>
               <div className="flex justify-center">{shortcut.icon}</div>
               <h3 className="font-bold text-xl">{shortcut.title}</h3>
               <div>{shortcut.content}</div>
+              
+              {/* iOS Shortcuts style button */}
+              <div className="absolute top-2 right-2 w-8 h-8 bg-white/30 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 z-10 backdrop-blur-sm">
+                <div className="flex gap-0.5">
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                  <div className="w-1 h-1 bg-white rounded-full"></div>
+                </div>
+              </div>
             </div>
           ))}
         </div>

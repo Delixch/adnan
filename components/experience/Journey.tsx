@@ -27,15 +27,15 @@ export const Journey: React.FC<JourneyProps> = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-       <div className="text-center mb-12">
+    <div className="mt-8 max-w-6xl mx-auto">
+       <div className="text-center mb-8">
         <h2 className="font-bold text-transparent text-5xl lg:text-6xl bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600 mb-2 leading-tight">
            Meine Schulische Laufbahn
         </h2>
         <hr className="w-96 mx-auto p-1 bg-gradient-to-r from-sky-400 to-sky-600 border-none rounded-sm" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {experiences.map((experience) => (
           <div
             key={experience.place}

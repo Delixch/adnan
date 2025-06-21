@@ -27,13 +27,13 @@ const shortcuts = [
   { id: "skills", label: "Fähigkeiten", icon: <HiLightningBolt className="w-8 h-8" />, color: "bg-amber-500", textColor: "text-amber-500" },
 ];
 
-const getSectionComponent = (id: string, headingColor: string) => {
+const getSectionComponent = (id: string, headingColor: string, setActiveSection: (section: string | null) => void) => {
   // Pass headingColor to each component that has a title
   switch (id) {
     case "home":
       return (
         <div className="w-full lg:w-1/2">
-          <Welcome headingColor={headingColor} />
+          <Welcome headingColor={headingColor} setActiveSection={setActiveSection} />
           <div className="mt-8">
             <Status />
           </div>
@@ -69,14 +69,18 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
     const newActiveSection = activeSection === sectionId ? null : sectionId;
     setActiveSection(newActiveSection);
 
-    setTimeout(() => {
-      if (newActiveSection) {
-        itemRefs.current[index].current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      }
-    }, 100); 
+    // Menü açıldığında seçilen menünün yukarı kaymasını sağla
+    if (newActiveSection) {
+      setTimeout(() => {
+        const selectedElement = itemRefs.current[index].current;
+        if (selectedElement) {
+          selectedElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 50);
+    }
   };
 
   return (
@@ -105,8 +109,8 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
               </div>
             </div>
             {activeSection === shortcut.id && (
-              <div className="bg-white p-6 rounded-b-3xl text-gray-900 shadow-lg">
-                {getSectionComponent(shortcut.id, shortcut.textColor)}
+              <div className="bg-white p-6 rounded-b-3xl text-gray-900 shadow-lg transition-all duration-300 ease-in-out">
+                {getSectionComponent(shortcut.id, shortcut.textColor, setActiveSection)}
               </div>
             )}
           </div>

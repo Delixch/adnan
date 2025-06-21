@@ -35,7 +35,7 @@ export const Info = () => {
       background: "#111",
       confirmButtonColor: "#000",
       showCloseButton: true,
-      confirmButtonText: ` <a href=${contact.href} target="blank">  In neuem Tab öffnen!🔥 /a>`,
+      confirmButtonText: `<a href=${contact.href} target="_blank">In neuem Tab öffnen!🔥</a>`,
       icon: "info",
     });
   };
