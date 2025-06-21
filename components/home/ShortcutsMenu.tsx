@@ -180,6 +180,15 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
                 className="p-4 flex items-center h-32 text-white cursor-pointer transform hover:scale-105 transition-all duration-300 ease-in-out relative bg-[#13131D] border border-gray-800 rounded-2xl"
                 onClick={shortcut.id === 'system-control' ? undefined : () => handleShortcutClick(shortcut.id, index + 5)}
               >
+                {/* iOS Shortcuts style button for new shortcuts */}
+                <div className="absolute top-2 right-2 w-6 h-6 bg-white/30 rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200 z-10 backdrop-blur-sm">
+                  <div className="flex gap-0.5">
+                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
+                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
+                    <div className="w-0.5 h-0.5 bg-white rounded-full"></div>
+                  </div>
+                </div>
+
                 {shortcut.id === 'visitor-counter' ? (
                   <div className="flex items-center justify-center w-full space-x-2">
                     <HiEye className="w-6 h-6" />
@@ -191,22 +200,22 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
                     <span className="text-sm font-semibold mb-2">Kontrol</span>
                     <SystemControl />
                   </div>
-                ) : (
+                ) : shortcut.id === 'system-status' ? (
                   <div className="flex items-center justify-between w-full">
                     <div className="flex items-center">
                       {shortcut.icon && <div className="mr-2">{shortcut.icon}</div>}
                       <span className="text-sm font-semibold">{shortcut.label}</span>
                     </div>
-                    {shortcut.id === "weather" && (
-                      <div className="ml-auto">
-                        <WeatherWidget />
-                      </div>
-                    )}
-                    {shortcut.id === "system-status" && (
-                      <div className="ml-auto">
-                        <SystemStatus />
-                      </div>
-                    )}
+                    <SystemStatus />
+                  </div>
+                ) : (
+                  // This handles the "weather" shortcut
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center">
+                      {shortcut.icon && <div className="mr-2">{shortcut.icon}</div>}
+                      <span className="text-sm font-semibold">{shortcut.label}</span>
+                    </div>
+                    <WeatherWidget />
                   </div>
                 )}
               </SpotlightCard>

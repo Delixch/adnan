@@ -27,7 +27,7 @@ const SystemStatus = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-full text-white text-xs">
+    <div className="flex flex-col items-start justify-center h-full text-white text-xs">
       <div className="flex items-center space-x-2 mb-1">
         <HiChip className="w-4 h-4 text-blue-400" />
         <span>CPU: {systemData.cpu}%</span>
