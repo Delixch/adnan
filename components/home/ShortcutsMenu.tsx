@@ -34,7 +34,7 @@ import SystemControl from "../shared/SystemControl";
 
 const shortcuts = [
   { id: "home", label: "Startseite", icon: <HiHome className="w-8 h-8" />, color: "bg-rose-500", textColor: "text-rose-500" },
-  { id: "about", label: "Über mich", icon: <HiUser className="w-8 h-8" />, color: "bg-blue-500", textColor: "text-blue-500" },
+  { id: "about", label: "Über mich", icon: <HiUser className="w-8 h-8" />, color: "bg-green-500", textColor: "text-blue-500" },
   { id: "experience", label: "Erfahrung", icon: <HiBriefcase className="w-8 h-8" />, color: "bg-sky-500", textColor: "text-sky-500" },
   { id: "projects", label: "Projekte", icon: <HiCollection className="w-8 h-8" />, color: "bg-orange-500", textColor: "text-orange-500" },
   { id: "skills", label: "Fähigkeiten", icon: <HiStar className="w-8 h-8" />, color: "bg-amber-500", textColor: "text-amber-500" },
