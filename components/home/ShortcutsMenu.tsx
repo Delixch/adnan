@@ -172,7 +172,7 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
         ))}
 
         {/* New shortcuts in grid layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {shortcuts.slice(6).map((shortcut, index) => (
             <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index + 6]}>
               <SpotlightCard
@@ -186,7 +186,7 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
                 {shortcut.id === 'visitor-counter' ? (
                   <div className="flex items-center justify-center w-full space-x-2">
                     <HiEye className="w-6 h-6" />
-                    <span className="text-lg font-bold">Besucherzahl</span>
+                    <span className="text-lg font-bold">Besucher</span>
                     <VisitorCounter />
                   </div>
                 ) : shortcut.id === 'system-control' ? (
