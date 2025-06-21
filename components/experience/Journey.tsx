@@ -39,15 +39,15 @@ export const Journey: React.FC<JourneyProps> = () => {
         {experiences.map((experience) => (
           <div
             key={experience.place}
-            className="bg-gradient-to-br from-sky-500 to-sky-700 text-white rounded-2xl p-6 shadow-lg transition-transform hover:scale-105 duration-300 group"
+            className="bg-sky-100 border-2 border-sky-500 text-sky-800 rounded-2xl p-6 shadow-lg transition-transform hover:scale-105 duration-300 group hover:bg-sky-200"
           >
-            <h3 className="text-lg font-bold text-white mb-3">
+            <h3 className="text-lg font-bold text-sky-800 mb-3">
               {experience.place}
             </h3>
-            <h4 className="font-semibold text-sky-100 mb-2 text-base">
+            <h4 className="font-semibold text-sky-700 mb-2 text-base">
               {experience.title}
             </h4>
-            <p className="text-sky-200 text-sm italic">
+            <p className="text-sky-600 text-sm italic">
               {experience.timespan}
             </p>
           </div>

@@ -35,7 +35,7 @@ export const Info = () => {
       background: "#111",
       confirmButtonColor: "#000",
       showCloseButton: true,
-      confirmButtonText: `<a href=${contact.href} target="_blank">In neuem Tab öffnen!🔥</a>`,
+      confirmButtonText: `<a href="${contact.href}" target="_blank">In neuem Tab öffnen!🔥</a>`,
       icon: "info",
     });
   };
@@ -67,10 +67,7 @@ export const Info = () => {
           Ich denke, dass mir der Beruf als KV-Mitarbeiter in einer Bank am meisten gefallen würde.{" "}
           <span className="text-yellow-400 font-semibold">Es wäre mein Wunsch</span>,{" "}
           <span className="text-purple-400 font-semibold">in diesem Bereich</span>, eine Lehrstelle zu finden{" "}
-          <span className="text-red-400 font-semibold">und diesen wichtigen Schritt</span> in meinem Leben.
-        </p>
-
-        <p className="text-gray-800 hover:text-black transition-colors duration-300">
+          <span className="text-red-400 font-semibold">und diesen wichtigen Schritt</span> in meinem Leben{" "}
           <span>
             erfolgreich abzuschließen.{" "}
             <span className="text-teal-400 font-bold">
@@ -89,7 +86,7 @@ export const Info = () => {
             <CustomButton
               btnType="submit"
               title={contact.name}
-              containerStyles="!my-1 w-full border-none bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md hover:shadow-lg transition-transform hover:scale-105 rounded-lg py-3"
+              containerStyles="!my-1 w-full border-2 border-emerald-500 bg-green-800 hover:bg-green-700 shadow-md hover:shadow-lg transition-transform hover:scale-105 rounded-lg py-3"
               textStyles="text-white font-semibold"
               onClick={() => onHandleClick(contact)}
             />
@@ -100,7 +97,7 @@ export const Info = () => {
             btnType="submit"
             title={instagram.name}
             to={instagram.href}
-            containerStyles="!my-1 w-full border-none bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg py-3"
+            containerStyles="!my-1 w-full border-2 border-emerald-500 bg-green-800 hover:bg-green-700 shadow-md hover:shadow-lg transition-transform transform hover:scale-105 rounded-lg py-3"
             textStyles="text-white font-semibold"
             onClick={() => onHandleClick(instagram)}
           />

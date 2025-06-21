@@ -85,7 +85,7 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
 
   return (
     <section className="p-4 md:p-8 relative">
-      <h1 className="text-2xl font-bold mb-4 text-white bg-gradient-to-r from-red-500 to-red-600 animate-pulse p-3 rounded-xl shadow-md border border-red-400/50 hover:animate-bounce transition-all duration-300 hover:shadow-lg hover:scale-105 h-24 flex items-center justify-center">
+      <h1 className="text-2xl font-bold mb-4 text-white bg-gradient-to-r from-red-500 to-red-600 animate-pulse p-3 rounded-xl shadow-md border border-red-400/50 hover:animate-bounce transition-all duration-300 hover:shadow-lg hover:scale-105 h-12 flex items-center justify-center">
         Eren Aydin Kurzbefehle
       </h1>
       

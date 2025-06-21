@@ -234,58 +234,60 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
         Meine bisherigen Schnupperlehren
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 w-full lg:w-4/5 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mt-6">
         {projects.map((project) => (
           <div
             key={project.img}
-            className="bg-gradient-to-br from-orange-500 to-orange-700 text-white rounded-2xl shadow-lg transition-transform hover:scale-105 duration-300 group">
+            className="border-2 border-orange-500 bg-orange-100 text-orange-800 rounded-xl shadow-lg transition-transform hover:scale-105 duration-300 group hover:bg-orange-200">
             <div
               className="relative flex justify-center items-center cursor-pointer"
               onClick={() => onHandleClick(project.link)}>
               <Image
                 src={project.img}
                 alt={project.name}
-                width={400}
-                height={300}
-                className="w-full h-72 object-cover rounded-t-2xl group-hover:opacity-70 transition-opacity duration-300"
+                width={300}
+                height={200}
+                className="w-full h-48 object-cover rounded-t-xl group-hover:opacity-70 transition-opacity duration-300"
               />
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-40 rounded-t-2xl">
-                <span className="text-white text-lg font-bold bg-black bg-opacity-60 px-4 py-2 rounded-md">
+              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-40 rounded-t-xl">
+                <span className="text-white text-sm font-bold bg-black bg-opacity-60 px-3 py-1 rounded-md">
                   Dokument ansehen 🔗
                 </span>
               </div>
             </div>
-            <div className="flex flex-col px-5 py-4">
-              <div className="flex items-center justify-between mb-4">
-                <p className="font-bold text-xl text-white">
+            <div className="flex flex-col px-3 py-3">
+              <div className="flex items-center justify-between mb-3">
+                <p className="font-bold text-lg text-orange-800">
                   {project.name}
                 </p>
 
-                <div className="flex items-center justify-end gap-2">
+                <div className="flex items-center justify-end gap-1">
                   {project.stacks.map((stack) => (
                     <div
                       key={stack.name}
-                      className="w-8 h-8 bg-orange-800/70 border border-orange-400/50 rounded-full flex items-center justify-center"
+                      className="w-6 h-6 bg-orange-200 border border-orange-500 rounded-full flex items-center justify-center"
                       title={stack.name}>
-                      {stack.logo}
+                      <div className="w-4 h-4">
+                        {stack.logo}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div className="flex-grow">
-                <p className="text-orange-100 text-sm">
+                <p className="text-orange-700 text-xs leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
-              <div className="flex justify-end items-center mt-4">
+              <div className="flex justify-end items-center mt-3">
                 <button 
                   onClick={() => handleLike(project.name)}
-                  className="flex items-center gap-2 text-white bg-orange-800/70 border border-orange-400/50 rounded-full px-4 py-2 transition-transform hover:scale-110"
+                  className="flex items-center gap-1 text-orange-800 bg-orange-200 border border-orange-500 rounded-full px-3 py-1 transition-transform hover:scale-110"
                 >
-                  <FaHeart className="text-red-500" />
-                  <span className="font-semibold text-sm">{likes[project.name] || 0}</span>
+                  <FaHeart className="text-red-500 w-3 h-3" />
+                  <span className="font-semibold text-xs">{likes[project.name] || 0}</span>
                 </button>
               </div>
             </div>

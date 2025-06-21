@@ -69,9 +69,9 @@ export const Certificate = () => {
         {expertCerficiates.map((expert) => (
           <div
             key={expert.img}
-            className="border border-sky-300 bg-gradient-to-br from-sky-500 to-sky-700 rounded-xl overflow-hidden hover:shadow-xl hover:border-transparent transition-all duration-300 hover:bg-gradient-to-r hover:from-sky-400 hover:to-sky-600 group transform hover:scale-105"
+            className="border-2 border-sky-500 bg-sky-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:bg-sky-200 group transform hover:scale-105"
           >
-            <div className="bg-sky-800 flex justify-center items-center border-b border-sky-300">
+            <div className="bg-sky-200 flex justify-center items-center border-b border-sky-500">
               <Image
                 src={expert.img}
                 alt={expert.name || "Certificate"}
@@ -82,17 +82,17 @@ export const Certificate = () => {
             </div>
 
             <div className="p-6 space-y-3">
-              <h3 className="font-bold text-lg lg:text-xl text-white group-hover:text-white">
+              <h3 className="font-bold text-lg lg:text-xl text-sky-800 group-hover:text-sky-800">
                 {expert.name}
               </h3>
-              <p className="text-sky-100 group-hover:text-white text-sm lg:text-base">
+              <p className="text-sky-700 group-hover:text-sky-700 text-sm lg:text-base">
                 {expert.from}
               </p>
-              <p className="text-sky-200 group-hover:text-white text-sm lg:text-base">
+              <p className="text-sky-600 group-hover:text-sky-600 text-sm lg:text-base">
                 {expert.issued}
               </p>
               {expert.credential && (
-                <p className="text-sky-200 group-hover:text-white text-sm lg:text-base">
+                <p className="text-sky-600 group-hover:text-sky-600 text-sm lg:text-base">
                   {expert.credential}
                 </p>
               )}
@@ -100,8 +100,8 @@ export const Certificate = () => {
               <CustomButton
                 btnType="button"
                 title="Zeugnis ansehen und herunterladen"
-                containerStyles="w-full mt-4 border-sky-300 bg-sky-800 hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-700 hover:shadow-lg transition-all duration-300 rounded-lg py-3"
-                textStyles="text-white font-semibold"
+                containerStyles="w-full mt-4 border-sky-500 bg-sky-200 hover:bg-sky-300 hover:shadow-lg transition-all duration-300 rounded-lg py-3"
+                textStyles="text-sky-800 font-semibold"
                 onClick={() => handleDirectDownload(expert)}
               />
             </div>

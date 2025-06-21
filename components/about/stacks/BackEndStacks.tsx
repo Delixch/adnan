@@ -46,7 +46,7 @@ export const BackEndStacks = () => {
         <div
           key={hobby.title}
           onClick={() => onHandleClick(hobby.title)}
-          className="bg-gradient-to-br from-amber-500 to-amber-700 text-white p-4 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-transform duration-300 hover:scale-110 shadow-lg cursor-pointer"
+          className="bg-amber-100 border-2 border-amber-500 text-amber-800 p-4 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-transform duration-300 hover:scale-110 shadow-lg cursor-pointer hover:bg-amber-200"
           title={hobby.title}
         >
           <div className="text-4xl">{hobby.icon}</div>
