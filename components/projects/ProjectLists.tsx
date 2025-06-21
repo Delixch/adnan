@@ -11,7 +11,8 @@ import {
   BiLogoJava,
   BiLogoHtml5,
 } from "react-icons/bi";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaFilePdf } from "react-icons/fa";
+import CustomButton from "../shared/CustomButton";
 
 interface ProjectListsProps {
   headingColor?: string;
@@ -37,11 +38,11 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "Python",
-          logo: <SiPython className="text-white w-7 h-7" />,
+          logo: <SiPython className="text-orange-600 w-full h-full" />,
         },
         {
           name: "OpenAI",
-          logo: <SiOpenai className="text-white w-7 h-7" />,
+          logo: <SiOpenai className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -54,11 +55,11 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "C#",
-          logo: <SiSharp className="text-white w-7 h-7" />,
+          logo: <SiSharp className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Unity",
-          logo: <SiUnity className="text-white w-7 h-7" />,
+          logo: <SiUnity className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -71,7 +72,7 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "Java",
-          logo: <BiLogoJava className="text-white w-7 h-7" />,
+          logo: <BiLogoJava className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -84,15 +85,15 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "CSS",
-          logo: <BiLogoCss3 className="text-white w-7 h-7" />,
+          logo: <BiLogoCss3 className="text-orange-600 w-full h-full" />,
         },
         {
           name: "JavaScript",
-          logo: <BiLogoJavascript className="text-white w-7 h-7" />,
+          logo: <BiLogoJavascript className="text-orange-600 w-full h-full" />,
         },
         {
           name: "HTML",
-          logo: <BiLogoHtml5 className="text-white w-7 h-7" />,
+          logo: <BiLogoHtml5 className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -105,11 +106,11 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "Python",
-          logo: <SiPython className="text-white w-7 h-7" />,
+          logo: <SiPython className="text-orange-600 w-full h-full" />,
         },
         {
           name: "OpenAI",
-          logo: <SiOpenai className="text-white w-7 h-7" />,
+          logo: <SiOpenai className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -122,11 +123,11 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "Python",
-          logo: <SiPython className="text-white w-7 h-7" />,
+          logo: <SiPython className="text-orange-600 w-full h-full" />,
         },
         {
           name: "OpenAI",
-          logo: <SiOpenai className="text-white w-7 h-7" />,
+          logo: <SiOpenai className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -139,19 +140,19 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "React",
-          logo: <SiReact className="text-white w-7 h-7" />,
+          logo: <SiReact className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Tailwind CSS",
-          logo: <BiLogoTailwindCss className="text-white w-7 h-7" />,
+          logo: <BiLogoTailwindCss className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Javascript",
-          logo: <BiLogoJavascript className="text-white w-7 h-7" />,
+          logo: <BiLogoJavascript className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Typescript",
-          logo: <BiLogoTypescript className="text-white w-7 h-7" />,
+          logo: <BiLogoTypescript className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -164,19 +165,19 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "React",
-          logo: <SiReact className="text-white w-7 h-7" />,
+          logo: <SiReact className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Tailwind CSS",
-          logo: <BiLogoTailwindCss className="text-white w-7 h-7" />,
+          logo: <BiLogoTailwindCss className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Javascript",
-          logo: <BiLogoJavascript className="text-white w-7 h-7" />,
+          logo: <BiLogoJavascript className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Typescript",
-          logo: <BiLogoTypescript className="text-white w-7 h-7" />,
+          logo: <BiLogoTypescript className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -189,19 +190,19 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
       stacks: [
         {
           name: "React",
-          logo: <SiReact className="text-white w-7 h-7" />,
+          logo: <SiReact className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Tailwind CSS",
-          logo: <BiLogoTailwindCss className="text-white w-7 h-7" />,
+          logo: <BiLogoTailwindCss className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Javascript",
-          logo: <BiLogoJavascript className="text-white w-7 h-7" />,
+          logo: <BiLogoJavascript className="text-orange-600 w-full h-full" />,
         },
         {
           name: "Typescript",
-          logo: <BiLogoTypescript className="text-white w-7 h-7" />,
+          logo: <BiLogoTypescript className="text-orange-600 w-full h-full" />,
         },
       ],
     },
@@ -223,37 +224,32 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
   };
 
   return (
-    <div className="mt-8 w-full self-center flex flex-col items-center justify-center">
-      <h1 className={`text-4xl font-bold mb-2 text-center ${headingColor || ''}`}>
-        Projekte
-      </h1>
+    <div className="mt-8 w-full max-w-6xl mx-auto">
+      <div className="text-center mb-6">
+        <h1 className={`text-4xl font-bold mb-2 text-center ${headingColor || ''}`}>
+          Projekte
+        </h1>
 
-      <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-orange-400 to-orange-600 border-none rounded-sm" />
+        <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-orange-400 to-orange-600 border-none rounded-sm mx-auto" />
 
-      <p className="text-gray-800 text-base lg:text-xl text-center">
-        Meine bisherigen Schnupperlehren
-      </p>
+        <p className="text-gray-800 text-base lg:text-xl text-center">
+          Meine bisherigen Schnupperlehren
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {projects.map((project) => (
           <div
             key={project.img}
             className="border-2 border-orange-500 bg-orange-100 text-orange-800 rounded-xl shadow-lg transition-transform hover:scale-105 duration-300 group hover:bg-orange-200">
-            <div
-              className="relative flex justify-center items-center cursor-pointer"
-              onClick={() => onHandleClick(project.link)}>
+            <div className="relative flex justify-center items-center">
               <Image
                 src={project.img}
                 alt={project.name}
                 width={300}
                 height={200}
-                className="w-full h-48 object-cover rounded-t-xl group-hover:opacity-70 transition-opacity duration-300"
+                className="w-full h-48 object-cover rounded-t-xl"
               />
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-40 rounded-t-xl">
-                <span className="text-white text-sm font-bold bg-black bg-opacity-60 px-3 py-1 rounded-md">
-                  Dokument ansehen 🔗
-                </span>
-              </div>
             </div>
             <div className="flex flex-col px-3 py-3">
               <div className="flex items-center justify-between mb-3">
@@ -281,14 +277,30 @@ export const ProjectLists: React.FC<ProjectListsProps> = ({ headingColor }) => {
                 </p>
               </div>
 
-              <div className="flex justify-end items-center mt-3">
-                <button 
-                  onClick={() => handleLike(project.name)}
-                  className="flex items-center gap-1 text-orange-800 bg-orange-200 border border-orange-500 rounded-full px-3 py-1 transition-transform hover:scale-110"
-                >
-                  <FaHeart className="text-red-500 w-3 h-3" />
-                  <span className="font-semibold text-xs">{likes[project.name] || 0}</span>
-                </button>
+              <div className="flex items-center justify-between mt-2">
+                <div className="flex items-center space-x-2">
+                  <FaHeart
+                    className="text-orange-500 cursor-pointer w-3 h-3"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleLike(project.name);
+                    }}
+                  />
+                  <span className="text-xs">{likes[project.name] || 0}</span>
+                </div>
+
+                <CustomButton
+                  btnType="button"
+                  title={
+                    <div className="flex items-center justify-center gap-2">
+                      <span>Dokument ansehen</span>
+                      <FaFilePdf />
+                    </div>
+                  }
+                  containerStyles="border-orange-500 bg-orange-200 hover:bg-orange-300 hover:shadow-lg transition-all duration-300 rounded-lg py-2 px-3"
+                  textStyles="text-orange-800 font-semibold text-sm"
+                  onClick={() => onHandleClick(project.link)}
+                />
               </div>
             </div>
           </div>

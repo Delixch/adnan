@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 
 export interface CustomButtonProps {
-  title: string;
+  title: string | ReactNode;
   btnType: "button" | "submit";
   textStyles?: string;
   containerStyles?: string;

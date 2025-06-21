@@ -77,7 +77,7 @@ export const Certificate = () => {
                 alt={expert.name || "Certificate"}
                 width={300}
                 height={200}
-                className="w-full h-48 object-cover"
+                className="w-full h-56 object-contain"
               />
             </div>
 

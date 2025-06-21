@@ -27,7 +27,7 @@ export const Skills: React.FC<SkillsProps> = ({ headingColor }) => {
 
       <hr className="w-96 mb-6 p-1 bg-gradient-to-r from-amber-500 to-amber-700 border-none rounded-sm" />
 
-      <div className="grid grid-cols-3 mb-6 w-full px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-6 w-full max-w-2xl px-4">
         {stacks.map((stack) => (
           <div key={stack.menu}>
             <button
