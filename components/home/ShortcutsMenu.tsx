@@ -9,7 +9,6 @@ import {
   HiLightningBolt,
   HiLockClosed,
   HiCloud,
-  HiChat,
   HiChip,
   HiStar,
   HiDocumentText,
@@ -26,7 +25,6 @@ import { Skills } from "@/components/about/Skills";
 import { Journey } from "@/components/experience/Journey";
 import { Certificate } from "@/components/experience/Certificate";
 import { ProjectLists } from "@/components/projects/ProjectLists";
-import { Guestbook } from "@/components/guestbook/Guestbook";
 
 // Import widget components
 import VisitorCounter from "../shared/VisitorCounter";
@@ -37,7 +35,6 @@ import SystemControl from "../shared/SystemControl";
 const shortcuts = [
   { id: "home", label: "Startseite", icon: <HiHome className="w-8 h-8" />, color: "bg-rose-500", textColor: "text-rose-500" },
   { id: "about", label: "Über mich", icon: <HiUser className="w-8 h-8" />, color: "bg-blue-500", textColor: "text-blue-500" },
-  { id: "guestbook", label: "Gästebuch", icon: <HiChat className="w-8 h-8" />, color: "bg-green-500", textColor: "text-green-500" },
   { id: "experience", label: "Erfahrung", icon: <HiBriefcase className="w-8 h-8" />, color: "bg-sky-500", textColor: "text-sky-500" },
   { id: "projects", label: "Projekte", icon: <HiCollection className="w-8 h-8" />, color: "bg-orange-500", textColor: "text-orange-500" },
   { id: "skills", label: "Fähigkeiten", icon: <HiStar className="w-8 h-8" />, color: "bg-amber-500", textColor: "text-amber-500" },
@@ -145,7 +142,7 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
       
       <div className="flex flex-col gap-4">
         {/* Original shortcuts */}
-        {shortcuts.slice(0, 6).map((shortcut, index) => (
+        {shortcuts.slice(0, 5).map((shortcut, index) => (
           <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index]}>
             <div
               onClick={() => handleShortcutClick(shortcut.id, index)}
@@ -173,15 +170,15 @@ const ShortcutsMenu: React.FC<ShortcutsMenuProps> = ({ activeSection, setActiveS
 
         {/* New shortcuts in grid layout */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {shortcuts.slice(6).map((shortcut, index) => (
-            <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index + 6]}>
+          {shortcuts.slice(5).map((shortcut, index) => (
+            <div key={shortcut.id} className="flex flex-col" ref={itemRefs.current[index + 5]}>
               <SpotlightCard
                 from="rgba(101, 10, 255, 0.4)"
                 via="rgba(112, 10, 255, 0.2)"
                 to="rgba(128, 80, 255, 0.1)"
                 size={200}
                 className="p-4 flex items-center h-32 text-white cursor-pointer transform hover:scale-105 transition-all duration-300 ease-in-out relative bg-[#13131D] border border-gray-800 rounded-2xl"
-                onClick={shortcut.id === 'system-control' ? undefined : () => handleShortcutClick(shortcut.id, index + 6)}
+                onClick={shortcut.id === 'system-control' ? undefined : () => handleShortcutClick(shortcut.id, index + 5)}
               >
                 {shortcut.id === 'visitor-counter' ? (
                   <div className="flex items-center justify-center w-full space-x-2">

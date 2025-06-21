@@ -10,6 +10,7 @@ import { FaBatteryFull } from "react-icons/fa";
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [time, setTime] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const updateClock = () => {
@@ -22,8 +23,26 @@ export default function Home() {
     updateClock();
     const intervalId = setInterval(updateClock, 1000); // Update every second
 
-    return () => clearInterval(intervalId);
+    // Set loaded state after a short delay
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timer);
+    };
   }, []);
+
+  // Add error boundary
+  if (!isLoaded) {
+    return (
+      <main className="bg-white text-gray-900 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900 mx-auto"></div>
+          <p className="mt-4 text-lg">Loading...</p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="bg-white text-gray-900 min-h-screen">
